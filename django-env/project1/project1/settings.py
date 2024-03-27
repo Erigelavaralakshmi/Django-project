@@ -37,8 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+#Third_party apps for more funtionality
+THIRD_PARTY_APPS = [
+    'rest_framework'
+]
+
+# Local apps
+LOCAL_APPS = [
     'proapp',
 ]
+
+INSTALLED_APPS = INSTALLED_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,3 +133,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Third party app configurations
+rest_framework = {
+    'DEFAULT_PAGINATION_CLASS': 'test_project.utils.StandardResultsSetPagination',
+    'PAGE_SIZE': 20
+}
